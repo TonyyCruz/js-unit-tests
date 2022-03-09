@@ -22,6 +22,7 @@ const circle = require('../src/circle');
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
+const circleComp = 3 + (3 * 3.14 * 3) + (2 * 3.14 * 3);
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
@@ -46,6 +47,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     expect(circle(3).area).toBeCloseTo(3 * 3 * 3.14);
 
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    expect(Math.round(circle(3).radius + circle(3).area + circle(3).circumference)).toBeCloseTo(50);
+    expect(circle(3).radius + circle(3).area + circle(3).circumference).toBeCloseTo(circleComp);
   });
 });
