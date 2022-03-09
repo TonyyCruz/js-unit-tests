@@ -55,17 +55,14 @@ const characters = {
 };
 
 const getCharacter = (name) => {
-  if (name === undefined) {
-    return undefined;
-  }
-
+  if (!name) { return undefined; }
   const lowered = name.toLowerCase();
 
   if (characters[lowered]) {
     return characters[lowered];
   }
-
   return undefined;
 };
 
+console.log(getCharacter('arya'));
 module.exports = getCharacter;
