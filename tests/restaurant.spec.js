@@ -57,10 +57,9 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // chave fetchMenu, a qual tem como valor uma função.
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
-    const objetoRetornado = createMenu;
-    objetoRetornado.fetchMenu = () => {};
 
-    expect(typeof objetoRetornado.fetchMenu).toBe('function');
+  
+    expect(typeof createMenu().fetchMenu).toBe('function');
   
 
 
@@ -68,27 +67,26 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // considerando que a função createMenu() foi chamada com o objeto: `{ food: {}, drink: {} }`.
     // ```
    // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
-  objetoRetornado.fetchMenu.food = {};
-  objetoRetornado.fetchMenu.drink = {};
-  const exp = Object.keys(createMenu.fetchMenu);
-    expect(exp).toEqual([ 'food', 'drink' ]);
+
+  // const teste2 = Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu());
+  const teste2 = createMenu({ food: {}, drink: {} }).fetchMenu();
+    expect(teste2).toEqual({ food: {}, drink: {} });
 
 
     // TESTE 3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
-
-    expect(objetoRetornado.fetchMenu).toEqual(createMenu.fetchMenu);
+  const teste3 = createMenu({ food: { pão: 2.00 }, drink: { suco: 3.00 } })
+    expect(teste3.fetchMenu()).toEqual({ food: { pão: 2.00 }, drink: { suco: 3.00 } });
 
 
 
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
-    const objRet = createMenu('obj');
     // objetoRetornado.consumption // Retorno: []
-    objRet.consumption = [];
-    let test = objRet.consumption;
-    expect(Array.isArray(test) && test.length === 0).toBeTruthy();
+    
+    const test4 = createMenu().consumption;
+    expect(Array.isArray(test4) && test4.length === 0).toBeTruthy();
 
 
 
@@ -98,9 +96,9 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
     // ao array retornado em `objetoRetornado.consumption`.
     // ```
-  objRet.order = (whey) => objRet.consumption.push(whey);
-  const teste5 = objRet.order('whay'); // *********
-  expect(objRet.order('whay')).toEqual(objRet.consumption === ['whey'])
+  // objRet.order = (whey) => objRet.consumption.push(whey);
+  // const teste5 = objRet.order('whay'); // *********
+  // expect(objRet.order('whay')).toEqual(objRet.consumption === ['whey'])
 
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");

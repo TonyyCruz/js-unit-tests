@@ -83,17 +83,22 @@
 
 // const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [] });
 
-// module.exports = createMenu;
+
+const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [], order: (whey) => { createMenu().consumption.push(whey); return createMenu().consumption; } }); // testes, apagar ********
+
+
+module.exports = createMenu;
 
 //
 
-const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [], order: (whey) => { createMenu().consumption.push(whey); return createMenu().consumption; } });
+
+console.log(createMenu().consumption);
 
 // createMenu.order = (whey) => createMenu().consumption.push(whey);
 // createMenu.order('whey');
 
 // console.log(createMenu().order('pão'));
 // createMenu().consumption.push('pao');
-console.log(createMenu().order('pao'));
+// console.log(createMenu().order('pao'));
 
 
