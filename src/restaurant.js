@@ -85,9 +85,10 @@ const createMenu = () => {};
 
 module.exports = createMenu;
 
+// const objetoRetornado = createMenu;
 createMenu.fetchMenu = () => {};
-createMenu.fetchMenu.food = {};
-createMenu.fetchMenu.drink = {};
-const exp = Object.keys(createMenu.fetchMenu);
-console.log(exp);
+// createMenu.fetchMenu.food = {};
+// createMenu.fetchMenu.drink = {};
+// const exp = Object.keys(objetoRetornado);
+console.log(typeof createMenu);
 
