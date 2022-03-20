@@ -79,6 +79,15 @@
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
+// createMenu é uma funcao com retorno vazio, aponta para [Function: createMenu]
+// const createMenu = (menu) => ({ fetchMenu: () => menu, consumption: [] });
 const createMenu = () => {};
 
 module.exports = createMenu;
+
+createMenu.fetchMenu = () => {};
+createMenu.fetchMenu.food = {};
+createMenu.fetchMenu.drink = {};
+const exp = Object.keys(createMenu.fetchMenu);
+console.log(exp);
+
