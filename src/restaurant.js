@@ -88,18 +88,26 @@ const createMenu = (obj) => {
     fetchMenu: () => obj, 
     consumption: [], 
     order: (pedido) => menu.consumption.push(pedido),
+    pay: () => {
+      const values = Object.keys(obj);
+      return menu.consumption.reduce((acc, cv) => {
+        if (values.some((item) => item === cv)) { return acc + obj[cv]; }
+        return acc;
+      }, 0);
+    },
   };
   return menu;
 };
 
 //
-const restaurant = createMenu({ pao: 2.00 });
+const restaurant = createMenu({ cafe: 3.00, pão: 2.50 });
 const orderFromMenu = (request) => restaurant.order(request);
 
 //
 
 orderFromMenu('cafe');
-console.log(restaurant.consumption);
+orderFromMenu('pão');
+console.log(restaurant.pay());
 
 //
 
