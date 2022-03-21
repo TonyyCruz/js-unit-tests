@@ -75,7 +75,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
     // TESTE 3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
-  const teste3 = createMenu({ food: { pão: 2.00 }, drink: { suco: 3.00 } })
+  const teste3 = createMenu({ food: { pão: 2.00 }, drink: { suco: 3.00 } });
     expect(teste3.fetchMenu()).toEqual({ food: { pão: 2.00 }, drink: { suco: 3.00 } });
 
 
@@ -96,9 +96,11 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
     // ao array retornado em `objetoRetornado.consumption`.
     // ```
-  // objRet.order = (whey) => objRet.consumption.push(whey);
-  // const teste5 = objRet.order('whay'); // *********
-  // expect(objRet.order('whay')).toEqual(objRet.consumption === ['whey'])
+
+  const teste5 = createMenu();
+  teste5.order('whey');
+  const retorno5 = createMenu().consumption;
+  expect(teste5.consumption).toEqual(['whey']);
 
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");

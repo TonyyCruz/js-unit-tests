@@ -81,24 +81,24 @@
 
 //
 
-// const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [] });
+//
+// função principal que recebe os valores para montar o menu. <====
+const createMenu = (obj) => {
+  const menu = { 
+    fetchMenu: () => obj, 
+    consumption: [], 
+    order: (pedido) => menu.consumption.push(pedido),
+  };
+  return menu;
+};
+
+//
+let menuDisplay = createMenu({ pao: 2.00 });
+menuDisplay.order('pao');
+console.log(menuDisplay.consumption);
 
 
-const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [], order: (whey) => { createMenu().consumption.push(whey); return createMenu().consumption; } }); // testes, apagar ********
-
-
-module.exports = createMenu;
 
 //
 
-
-console.log(createMenu().consumption);
-
-// createMenu.order = (whey) => createMenu().consumption.push(whey);
-// createMenu.order('whey');
-
-// console.log(createMenu().order('pão'));
-// createMenu().consumption.push('pao');
-// console.log(createMenu().order('pao'));
-
-
+module.exports = createMenu;
