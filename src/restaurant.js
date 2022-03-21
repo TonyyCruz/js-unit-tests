@@ -105,9 +105,9 @@ const orderFromMenu = (request) => restaurant.order(request);
 
 //
 
-orderFromMenu('cafe');
-orderFromMenu('pão');
-console.log(restaurant.pay());
+// orderFromMenu('cafe');
+// orderFromMenu('pão');
+// console.log(restaurant.pay());
 
 //
 
