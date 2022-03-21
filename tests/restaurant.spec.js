@@ -69,8 +69,8 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
    // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
 
   // const teste2 = Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu());
-  const teste2 = createMenu({ food: {}, drink: {} }).fetchMenu();
-    expect(teste2).toEqual({ food: {}, drink: {} });
+  const teste2 = createMenu({ food: {}, drink: {} })
+    expect(teste2.fetchMenu()).toEqual({ food: {}, drink: {} });
 
 
     // TESTE 3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
@@ -99,7 +99,6 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
   const teste5 = createMenu();
   teste5.order('whey');
-  const retorno5 = createMenu().consumption;
   expect(teste5.consumption).toEqual(['whey']);
 
     // const objetoRetornado = createMenu(objetoQualquer);
@@ -110,14 +109,18 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
-    // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
-    // ```
+    // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas (a objetoRetornado.order), o array `objetoRetornado.consumption` contém os itens pedidos.
+  const teste6 = createMenu();
+  teste6.order('suco');
+  teste6.order('pizza');
+  teste6.order('sorvete');
+  expect(teste6.consumption).toEqual(['suco', 'pizza', 'sorvete']);
     // objetoRetornado.order("coxinha");
     // objetoRetornado.order("agua");
     // objetoRetornado.order("sopa");
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
-    // ```
+
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.

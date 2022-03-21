@@ -93,11 +93,13 @@ const createMenu = (obj) => {
 };
 
 //
-let menuDisplay = createMenu({ pao: 2.00 });
-menuDisplay.order('pao');
-console.log(menuDisplay.consumption);
+const restaurant = createMenu({ pao: 2.00 });
+const orderFromMenu = (request) => restaurant.order(request);
 
+//
 
+orderFromMenu('cafe');
+console.log(restaurant.consumption);
 
 //
 
