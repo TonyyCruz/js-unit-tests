@@ -1,11 +1,5 @@
 const createMenu = require('../src/restaurant'); 
 
-
-
-
-
-
-
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
   - ler o menu cadastrado;
@@ -58,7 +52,8 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
   
-    expect(typeof createMenu().fetchMenu).toBe('function');
+    const testar = createMenu();
+    expect(typeof testar.fetchMenu).toBe('function');
   
 
     // TESTE 2: Verifique se 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`, 
@@ -66,7 +61,6 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
    // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
   //
-  // const teste2 = Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu());
   const teste2 = createMenu({ food: {}, drink: {} })
     expect(teste2.fetchMenu()).toEqual({ food: {}, drink: {} });
 
@@ -83,8 +77,9 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // objetoRetornado.consumption // Retorno: []
     
-    const teste4 = createMenu().consumption;
-    expect(Array.isArray(teste4) && teste4.length === 0).toBeTruthy();
+    const teste4 = createMenu();
+    const testeArray = teste4.consumption;
+    expect(Array.isArray(testeArray) && testeArray.length === 0).toBeTruthy();
 
 
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
